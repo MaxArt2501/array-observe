@@ -65,9 +65,9 @@ Array.prototype.push.call(object, "foo");
 
 ## Under the hood
 
-This polyfill wraps the native array `push`, `pop`, `shift`, `unshift` and `splice` methods so that they do a `performChange` call on the array's notifier. *It's precisely [what the spec says](http://arv.github.io/ecmascript-object-observe/#Array-changes) it should happen*.
+This polyfill wraps the native array `push`, `pop`, `shift`, `unshift` and `splice` methods so that they do a `performChange` call on the array's notifier. *It's precisely [what the spec says](http://arv.github.io/ecmascript-object-observe/#Array-changes) should happen*.
 
-Unfortunately, this is certainly an obtrusive way to generate `"splice"` changes, not to mention it deters the performance of said methods. Benchmarks show that wrapped methods are from 5 times (for `splice`) to 375 times slower (for `push`) - YMMV depending on the executing environment. In order to apply the polyfill also when calling array methods on generic objects, the methods are wrapped *directly on `Array.prototype`*. thus affecting *all* the arrays, even when not observed.
+Unfortunately, this is certainly an obtrusive way to generate `"splice"` changes, not to mention it reduces the performance of said methods. Benchmarks show that wrapped methods are from 5 times (for `splice`) to 375 times slower (for `push`) - YMMV depending on the executing environment. In order to apply the polyfill also when calling array methods on generic objects, the methods are wrapped *directly on `Array.prototype`*. thus affecting *all* the arrays, even when not observed.
 
 Moreover, this polyfill doesn't trigger a `"splice"` change when performing an array operation that does *not* use one of the above methods. That is handled normally in `Object.observe`, firing the usual `"add"`, `"update"` and `"delete"` events.
 
@@ -100,7 +100,7 @@ Array.observe = (function(observe) {
 
 ## Tests
 
-Tests are performed using [mocha](http://mochajs.org/) and assertions are made using [expect](https://github.com/Automattic/expect.js), which are set as development dependencies. Assuming the you're located in the project's root directory, if you want to run the tests after installing the package, just do
+Tests are performed using [mocha](http://mochajs.org/) and assertions are made using [expect](https://github.com/Automattic/expect.js), which are set as development dependencies. Assuming you're in the project's root directory, if you want to run the tests after installing the package, just do
 
 ```bash
 cd node_modules/array.observe
