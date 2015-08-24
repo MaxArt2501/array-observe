@@ -67,7 +67,9 @@ Array.prototype.push.call(object, "foo");
 
 This polyfill wraps the native array `push`, `pop`, `shift`, `unshift` and `splice` methods so that they do a `performChange` call on the array's notifier. *It's precisely [what the spec says](http://arv.github.io/ecmascript-object-observe/#Array-changes) should happen*.
 
-Unfortunately, this is certainly an obtrusive way to generate `"splice"` changes, not to mention it reduces the performance of said methods. Benchmarks show that wrapped methods are from 5 times (for `splice`) to 375 times slower (for `push`) - YMMV depending on the executing environment. In order to apply the polyfill also when calling array methods on generic objects, the methods are wrapped *directly on `Array.prototype`*. thus affecting *all* the arrays, even when not observed.
+Unfortunately, this is certainly an obtrusive way to generate `"splice"` changes, not to mention it reduces the performance of said methods. Benchmarks show that wrapped methods are from 6 times (for `splice`) to 400 times slower (for `push`) - YMMV depending on the executing environment (see the [Benchmarks](#benchmarks) section later and some [results](benchmarks.md)).
+
+In order to apply the polyfill also when calling array methods on generic objects, the methods are wrapped *directly on `Array.prototype`*, thus affecting *all* the arrays, even when not observed.
 
 Moreover, this polyfill doesn't trigger a `"splice"` change when performing an array operation that does *not* use one of the above methods. That is handled normally in `Object.observe`, firing the usual `"add"`, `"update"` and `"delete"` events.
 
@@ -114,11 +116,12 @@ For client side testing, just open [index.html](test/index.html) in your browser
 
 ## Benchmarks
 
-Some benchmarks have been created, using [benchmark.js](http://benchmarkjs.com/), testing the performances of the wrapped array methods.
+Some benchmarks have been created, using [benchmark.js](http://benchmarkjs.com/), testing the performances of the wrapped array methods (see some [results](benchmarks.md)).
 
 After having installed the development dependencies (see above), open the [index.html](../benchmark/index.html) file in the benchmark/ directory in your browser of choice. To test node.js < 0.11.13, run `npm run benchmark`.
 
 The benchmarks won't start if `Array.observe` is natively supported.
+
 
 ## License
 
