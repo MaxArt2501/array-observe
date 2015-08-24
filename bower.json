@@ -1,0 +1,26 @@
+{
+  "name": "array.observe",
+  "version": "0.0.1",
+  "homepage": "https://github.com/MaxArt2501/array-observe",
+  "authors": [
+    "Massimo Artizzu <maxart.x@gmail.com>"
+  ],
+  "description": "Array.observe polyfill based on ES7 spec",
+  "main": "array-observe.min.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "observe",
+    "data-binding",
+    "Object.observe"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "benchmark",
+    "test"
+  ]
+}
