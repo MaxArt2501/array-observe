@@ -16,13 +16,13 @@ This polyfill extends the native `Array` and doesn't have any dependencies, so l
 
 Use `array-observe.min.js` for the minified version.
 
-Using bower (coming soon):
+Using bower:
 
 ```bash
 $ bower install array.observe
 ```
 
-Or in node.js (coming soon):
+Or in node.js:
 
 ```bash
 $ npm install array.observe
