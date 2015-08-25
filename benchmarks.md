@@ -55,6 +55,7 @@ Test platforms:
 
 Test platforms:
 * Firefox 40 on Samsung Galaxy Note 3 with Android 5.0 (Qualcomm Snapdragon 800, quad core, 2.3 GHz, 3 GB RAM)
+* Safari 8 on iPhone 5 with iOS 8.4 (Apple A6, dual core, 1.3 GHz, 1 GB RAM)
 
 ### Firefox 40
 
@@ -65,3 +66,13 @@ Test platforms:
 | unshift | 4958252.73 | 37789.83 |       131.21 |
 | shift   | 1562613.21 | 15324.80 |       101.97 |
 | splice  |  927863.70 | 32838.00 |        28.26 |
+
+### Safari 8
+
+| Method  | Native      | Wrapped   | Times slower |
+|:--------|------------:|----------:|-------------:|
+| push    |  5368891.57 | 133325.58 |        40.27 |
+| pop     | 39911211.76 | 229963.86 |       173.55 |
+| unshift |  5833209.88 | 129235.29 |        45.14 |
+| shift   |  2396270.59 | 144764.71 |        16.55 |
+| splice  |  1824675.32 | 107976.19 |        16.90 |
