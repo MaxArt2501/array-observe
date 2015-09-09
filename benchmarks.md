@@ -56,6 +56,7 @@ Test platforms:
 Test platforms:
 * Firefox 40 on Samsung Galaxy Note 3 with Android 5.0 (Qualcomm Snapdragon 800, quad core, 2.3 GHz, 3 GB RAM)
 * Safari 8 on iPhone 5 with iOS 8.4 (Apple A6, dual core, 1.3 GHz, 1 GB RAM)
+* IE Mobile on Nokia Lumia 820 with Windows Phone 8.1 (Qualcomm Snapdragon S4 Plus, 1.5 GHz, 1 GB RAM)
 
 ### Firefox 40
 
@@ -76,3 +77,13 @@ Test platforms:
 | unshift |  5833209.88 | 129235.29 |        45.14 |
 | shift   |  2396270.59 | 144764.71 |        16.55 |
 | splice  |  1824675.32 | 107976.19 |        16.90 |
+
+### IE Mobile
+
+| Method  | Native      | Wrapped   | Times slower |
+|:--------|------------:|----------:|-------------:|
+| push    | 13773883.19 |  17019.24 |       809.31 |
+| pop     |  5193937.67 |  23500.54 |       221.01 |
+| unshift |  7586075.99 |  17224.12 |       440.43 |
+| shift   |  2927335.62 |  23124.06 |       126.59 |
+| splice  |  1133894.17 |  13962.84 |        81.21 |
