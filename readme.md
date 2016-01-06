@@ -5,6 +5,11 @@ This polyfill is actually meant to be a companion to the [Object.observe polyfil
 
 The reason of this split is because of its obtrusive nature.
 
+## `Object.observe` isn't a proposed spec anymore
+
+You might have read this around, but back in November `Object.observe` proposal was withdrawn from TC39. This also means that `Object.observe` will be pulled from Chrome and other V8-based environments, and that would imply that *developers shouldn't rely on it anymore*. Web development evolved in the direction of functional programming and immutable objects, so that's where we all should look at.
+
+Read more on the page for [`Object.observe`](https://github.com/MaxArt2501/object-observe).
 
 ## Installation
 
